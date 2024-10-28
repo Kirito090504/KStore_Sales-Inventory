@@ -53,5 +53,10 @@ namespace KStore_Sales_Inventory
                 progressBar1.Value = value;
             }
         }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
