@@ -46,6 +46,7 @@
             this.dtp4.RowTemplate.Height = 24;
             this.dtp4.Size = new System.Drawing.Size(434, 554);
             this.dtp4.TabIndex = 0;
+            this.dtp4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtp4_CellContentClick);
             // 
             // dtp5
             // 
@@ -56,6 +57,7 @@
             this.dtp5.RowTemplate.Height = 24;
             this.dtp5.Size = new System.Drawing.Size(435, 554);
             this.dtp5.TabIndex = 1;
+            this.dtp5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtp5_CellContentClick);
             // 
             // label1
             // 

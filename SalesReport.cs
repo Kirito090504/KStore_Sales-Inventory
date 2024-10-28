@@ -16,5 +16,15 @@ namespace KStore_Sales_Inventory
         {
             InitializeComponent();
         }
+
+        private void dtp4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //show here the transactions and sales
+        }
+
+        private void dtp5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //show here the remaining stocks and etc (remove if you can fit it all in 1 table)
+        }
     }
 }
