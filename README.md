@@ -14,5 +14,4 @@ environment:
 ## Setup (Server via XAMPP)
 
 Run XAMPP and start Apache and MySQL. Navigate to <http://localhost/phpmyadmin>
-and create a new database with the name `bu_student_information_system` and
-import the `kdb.sql` file.
+and create a new database with the name `kstore_system` and import the `kdb.sql` file.
