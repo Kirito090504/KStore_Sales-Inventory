@@ -183,7 +183,6 @@
         #endregion
 
         private System.Windows.Forms.Panel Board;
-        private System.Windows.Forms.Button users_btn;
         private System.Windows.Forms.Button SRep_btn;
         private System.Windows.Forms.Button Inv_btn;
         private System.Windows.Forms.Button POS_btn;
@@ -191,5 +190,6 @@
         private System.Windows.Forms.Label lblpg;
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.PictureBox logo;
+        public System.Windows.Forms.Button users_btn;
     }
 }

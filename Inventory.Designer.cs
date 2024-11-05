@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.delete_btn = new System.Windows.Forms.Button();
             this.clear_btn = new System.Windows.Forms.Button();
             this.modify_btn = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtp3 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.stock_txtbox = new System.Windows.Forms.TextBox();
             this.category_box = new System.Windows.Forms.ComboBox();
@@ -48,6 +48,7 @@
             this.brand_txtbox = new System.Windows.Forms.TextBox();
             this.name_txtbox = new System.Windows.Forms.TextBox();
             this.ItemID_txtbox = new System.Windows.Forms.TextBox();
+            this.dtp3 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtp3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             this.delete_btn.TabIndex = 53;
             this.delete_btn.Text = "DELETE";
             this.delete_btn.UseVisualStyleBackColor = false;
+            this.delete_btn.Click += new System.EventHandler(this.delete_btn_Click);
             // 
             // clear_btn
             // 
@@ -80,6 +82,7 @@
             this.clear_btn.TabIndex = 52;
             this.clear_btn.Text = "CLEAR";
             this.clear_btn.UseVisualStyleBackColor = false;
+            this.clear_btn.Click += new System.EventHandler(this.clear_btn_Click);
             // 
             // modify_btn
             // 
@@ -95,6 +98,7 @@
             this.modify_btn.TabIndex = 50;
             this.modify_btn.Text = "MODIFY";
             this.modify_btn.UseVisualStyleBackColor = false;
+            this.modify_btn.Click += new System.EventHandler(this.modify_btn_Click);
             // 
             // search_btn
             // 
@@ -110,6 +114,7 @@
             this.search_btn.TabIndex = 49;
             this.search_btn.Text = "SEARCH";
             this.search_btn.UseVisualStyleBackColor = false;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
             // 
             // add_btn
             // 
@@ -125,6 +130,7 @@
             this.add_btn.TabIndex = 48;
             this.add_btn.Text = "ADD";
             this.add_btn.UseVisualStyleBackColor = false;
+            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
             // label7
             // 
@@ -203,16 +209,6 @@
             this.label1.TabIndex = 39;
             this.label1.Text = "Item ID:";
             // 
-            // dtp3
-            // 
-            this.dtp3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtp3.Location = new System.Drawing.Point(404, 12);
-            this.dtp3.Name = "dtp3";
-            this.dtp3.RowHeadersWidth = 51;
-            this.dtp3.RowTemplate.Height = 24;
-            this.dtp3.Size = new System.Drawing.Size(493, 641);
-            this.dtp3.TabIndex = 37;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -239,6 +235,9 @@
             this.category_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.category_box.ForeColor = System.Drawing.Color.White;
             this.category_box.FormattingEnabled = true;
+            this.category_box.Items.AddRange(new object[] {
+            "Electronics",
+            "General items"});
             this.category_box.Location = new System.Drawing.Point(140, 183);
             this.category_box.Name = "category_box";
             this.category_box.Size = new System.Drawing.Size(247, 28);
@@ -288,12 +287,28 @@
             this.ItemID_txtbox.Size = new System.Drawing.Size(247, 20);
             this.ItemID_txtbox.TabIndex = 29;
             // 
+            // dtp3
+            // 
+            this.dtp3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtp3.Location = new System.Drawing.Point(415, -1);
+            this.dtp3.Name = "dtp3";
+            this.dtp3.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dtp3.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtp3.RowTemplate.Height = 24;
+            this.dtp3.Size = new System.Drawing.Size(498, 654);
+            this.dtp3.TabIndex = 54;
+            // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(910, 665);
+            this.Controls.Add(this.dtp3);
             this.Controls.Add(this.delete_btn);
             this.Controls.Add(this.clear_btn);
             this.Controls.Add(this.modify_btn);
@@ -306,7 +321,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtp3);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.stock_txtbox);
             this.Controls.Add(this.category_box);
@@ -339,7 +353,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dtp3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox stock_txtbox;
         private System.Windows.Forms.ComboBox category_box;
@@ -347,5 +360,6 @@
         private System.Windows.Forms.TextBox brand_txtbox;
         private System.Windows.Forms.TextBox name_txtbox;
         private System.Windows.Forms.TextBox ItemID_txtbox;
+        private System.Windows.Forms.DataGridView dtp3;
     }
 }
