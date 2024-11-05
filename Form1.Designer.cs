@@ -64,6 +64,7 @@
             this.cancel_btn.TabIndex = 1;
             this.cancel_btn.Text = "CANCEL";
             this.cancel_btn.UseVisualStyleBackColor = false;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
             // user_box
             // 
@@ -124,7 +125,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Log-in";
+            this.Text = "s";
             this.ResumeLayout(false);
             this.PerformLayout();
 

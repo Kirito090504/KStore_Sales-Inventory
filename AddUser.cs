@@ -19,7 +19,15 @@ namespace KStore_Sales_Inventory
 
         private void add_btn_Click(object sender, EventArgs e)
         {
+            string name = name_txtbox.Text;
+            string username = user_txtbox.Text;
+            string password = pass_txtbox.Text;
+            string role = role_txtbox.Text;
 
+            // Display the input data in a message box
+            MessageBox.Show($"Name: {name}\nUsername: {username}\nPassword: {password}\nRole: {role}", "User Information");
+
+            // Here you could add code to save this data to a database or file. not yet done
         }
 
         private void clear_btn_Click(object sender, EventArgs e)

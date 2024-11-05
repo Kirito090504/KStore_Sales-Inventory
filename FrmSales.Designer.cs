@@ -96,7 +96,7 @@
             this.price_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.price_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.price_txtbox.ForeColor = System.Drawing.Color.White;
-            this.price_txtbox.Location = new System.Drawing.Point(141, 243);
+            this.price_txtbox.Location = new System.Drawing.Point(141, 245);
             this.price_txtbox.Name = "price_txtbox";
             this.price_txtbox.Size = new System.Drawing.Size(247, 20);
             this.price_txtbox.TabIndex = 3;
@@ -108,6 +108,9 @@
             this.category_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.category_box.ForeColor = System.Drawing.Color.White;
             this.category_box.FormattingEnabled = true;
+            this.category_box.Items.AddRange(new object[] {
+            "Electronics",
+            "General items"});
             this.category_box.Location = new System.Drawing.Point(141, 183);
             this.category_box.Name = "category_box";
             this.category_box.Size = new System.Drawing.Size(247, 28);
@@ -119,7 +122,7 @@
             this.stock_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.stock_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stock_txtbox.ForeColor = System.Drawing.Color.White;
-            this.stock_txtbox.Location = new System.Drawing.Point(141, 306);
+            this.stock_txtbox.Location = new System.Drawing.Point(141, 307);
             this.stock_txtbox.Name = "stock_txtbox";
             this.stock_txtbox.Size = new System.Drawing.Size(247, 20);
             this.stock_txtbox.TabIndex = 5;
@@ -227,11 +230,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(16, 308);
+            this.label6.Location = new System.Drawing.Point(16, 306);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 25);
+            this.label6.Size = new System.Drawing.Size(100, 25);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Stock:";
+            this.label6.Text = "Quantity:";
             // 
             // label7
             // 
@@ -296,6 +299,7 @@
             this.clear_btn.TabIndex = 24;
             this.clear_btn.Text = "CLEAR";
             this.clear_btn.UseVisualStyleBackColor = false;
+            this.clear_btn.Click += new System.EventHandler(this.clear_btn_Click);
             // 
             // paid_btn
             // 
@@ -311,6 +315,7 @@
             this.paid_btn.TabIndex = 25;
             this.paid_btn.Text = "PAID";
             this.paid_btn.UseVisualStyleBackColor = false;
+            this.paid_btn.Click += new System.EventHandler(this.paid_btn_Click);
             // 
             // add_btn
             // 
@@ -326,6 +331,7 @@
             this.add_btn.TabIndex = 26;
             this.add_btn.Text = "ADD";
             this.add_btn.UseVisualStyleBackColor = false;
+            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
             // modify_btn
             // 
@@ -341,6 +347,7 @@
             this.modify_btn.TabIndex = 27;
             this.modify_btn.Text = "MODIFY";
             this.modify_btn.UseVisualStyleBackColor = false;
+            this.modify_btn.Click += new System.EventHandler(this.modify_btn_Click);
             // 
             // delete_btn
             // 
@@ -356,6 +363,7 @@
             this.delete_btn.TabIndex = 28;
             this.delete_btn.Text = "DELETE";
             this.delete_btn.UseVisualStyleBackColor = false;
+            this.delete_btn.Click += new System.EventHandler(this.delete_btn_Click);
             // 
             // FrmSales
             // 
