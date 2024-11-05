@@ -28,64 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.login = new System.Windows.Forms.Button();
-            this.cancel = new System.Windows.Forms.Button();
+            this.login_btn = new System.Windows.Forms.Button();
+            this.cancel_btn = new System.Windows.Forms.Button();
             this.user_box = new System.Windows.Forms.TextBox();
             this.pass_box = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // login
+            // login_btn
             // 
-            this.login.Location = new System.Drawing.Point(83, 191);
-            this.login.Name = "login";
-            this.login.Size = new System.Drawing.Size(143, 37);
-            this.login.TabIndex = 0;
-            this.login.Text = "LOG IN";
-            this.login.UseVisualStyleBackColor = true;
-            this.login.Click += new System.EventHandler(this.login_Click);
+            this.login_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.login_btn.FlatAppearance.BorderSize = 0;
+            this.login_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.login_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_btn.ForeColor = System.Drawing.Color.White;
+            this.login_btn.Location = new System.Drawing.Point(77, 140);
+            this.login_btn.Name = "login_btn";
+            this.login_btn.Size = new System.Drawing.Size(143, 37);
+            this.login_btn.TabIndex = 0;
+            this.login_btn.Text = "LOG IN";
+            this.login_btn.UseVisualStyleBackColor = false;
+            this.login_btn.Click += new System.EventHandler(this.login_Click);
             // 
-            // cancel
+            // cancel_btn
             // 
-            this.cancel.Location = new System.Drawing.Point(249, 191);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(143, 37);
-            this.cancel.TabIndex = 1;
-            this.cancel.Text = "CANCEL";
-            this.cancel.UseVisualStyleBackColor = true;
+            this.cancel_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.cancel_btn.FlatAppearance.BorderSize = 0;
+            this.cancel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_btn.ForeColor = System.Drawing.Color.White;
+            this.cancel_btn.Location = new System.Drawing.Point(243, 140);
+            this.cancel_btn.Name = "cancel_btn";
+            this.cancel_btn.Size = new System.Drawing.Size(143, 37);
+            this.cancel_btn.TabIndex = 1;
+            this.cancel_btn.Text = "CANCEL";
+            this.cancel_btn.UseVisualStyleBackColor = false;
             // 
             // user_box
             // 
-            this.user_box.Location = new System.Drawing.Point(192, 83);
+            this.user_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.user_box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.user_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_box.ForeColor = System.Drawing.Color.White;
+            this.user_box.Location = new System.Drawing.Point(186, 32);
             this.user_box.Name = "user_box";
-            this.user_box.Size = new System.Drawing.Size(231, 22);
+            this.user_box.Size = new System.Drawing.Size(231, 20);
             this.user_box.TabIndex = 2;
             // 
             // pass_box
             // 
-            this.pass_box.Location = new System.Drawing.Point(192, 138);
+            this.pass_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.pass_box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pass_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pass_box.ForeColor = System.Drawing.Color.White;
+            this.pass_box.Location = new System.Drawing.Point(186, 87);
             this.pass_box.Name = "pass_box";
-            this.pass_box.Size = new System.Drawing.Size(231, 22);
+            this.pass_box.Size = new System.Drawing.Size(231, 20);
             this.pass_box.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 83);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(47, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 22);
+            this.label1.Size = new System.Drawing.Size(117, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "Username:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 138);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(47, 87);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 22);
+            this.label2.Size = new System.Drawing.Size(113, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Password:";
             // 
@@ -93,14 +113,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(227)))), ((int)(((byte)(222)))));
-            this.ClientSize = new System.Drawing.Size(472, 267);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(38)))));
+            this.ClientSize = new System.Drawing.Size(472, 203);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pass_box);
             this.Controls.Add(this.user_box);
-            this.Controls.Add(this.cancel);
-            this.Controls.Add(this.login);
+            this.Controls.Add(this.cancel_btn);
+            this.Controls.Add(this.login_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -112,8 +132,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button login;
-        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Button login_btn;
+        private System.Windows.Forms.Button cancel_btn;
         private System.Windows.Forms.TextBox user_box;
         private System.Windows.Forms.TextBox pass_box;
         private System.Windows.Forms.Label label1;

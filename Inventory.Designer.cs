@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.delete_btn = new System.Windows.Forms.Button();
+            this.clear_btn = new System.Windows.Forms.Button();
+            this.modify_btn = new System.Windows.Forms.Button();
+            this.search_btn = new System.Windows.Forms.Button();
+            this.add_btn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,81 +40,97 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtp3 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.stock_txtbox = new System.Windows.Forms.TextBox();
+            this.category_box = new System.Windows.Forms.ComboBox();
+            this.price_txtbox = new System.Windows.Forms.TextBox();
+            this.brand_txtbox = new System.Windows.Forms.TextBox();
+            this.name_txtbox = new System.Windows.Forms.TextBox();
+            this.ItemID_txtbox = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dtp3)).BeginInit();
             this.SuspendLayout();
             // 
-            // button6
+            // delete_btn
             // 
-            this.button6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(273, 498);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(114, 34);
-            this.button6.TabIndex = 53;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.delete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.delete_btn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.delete_btn.FlatAppearance.BorderSize = 0;
+            this.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_btn.ForeColor = System.Drawing.Color.White;
+            this.delete_btn.Location = new System.Drawing.Point(273, 498);
+            this.delete_btn.Name = "delete_btn";
+            this.delete_btn.Size = new System.Drawing.Size(114, 34);
+            this.delete_btn.TabIndex = 53;
+            this.delete_btn.Text = "DELETE";
+            this.delete_btn.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // clear_btn
             // 
-            this.button5.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(140, 498);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 34);
-            this.button5.TabIndex = 52;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.clear_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.clear_btn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.clear_btn.FlatAppearance.BorderSize = 0;
+            this.clear_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clear_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear_btn.ForeColor = System.Drawing.Color.White;
+            this.clear_btn.Location = new System.Drawing.Point(140, 498);
+            this.clear_btn.Name = "clear_btn";
+            this.clear_btn.Size = new System.Drawing.Size(113, 34);
+            this.clear_btn.TabIndex = 52;
+            this.clear_btn.Text = "CLEAR";
+            this.clear_btn.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // modify_btn
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(273, 458);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 34);
-            this.button3.TabIndex = 50;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.modify_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.modify_btn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.modify_btn.FlatAppearance.BorderSize = 0;
+            this.modify_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.modify_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modify_btn.ForeColor = System.Drawing.Color.White;
+            this.modify_btn.Location = new System.Drawing.Point(273, 458);
+            this.modify_btn.Name = "modify_btn";
+            this.modify_btn.Size = new System.Drawing.Size(114, 34);
+            this.modify_btn.TabIndex = 50;
+            this.modify_btn.Text = "MODIFY";
+            this.modify_btn.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // search_btn
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(140, 410);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(247, 42);
-            this.button1.TabIndex = 49;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.search_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.search_btn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.search_btn.FlatAppearance.BorderSize = 0;
+            this.search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.search_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search_btn.ForeColor = System.Drawing.Color.White;
+            this.search_btn.Location = new System.Drawing.Point(140, 410);
+            this.search_btn.Name = "search_btn";
+            this.search_btn.Size = new System.Drawing.Size(247, 42);
+            this.search_btn.TabIndex = 49;
+            this.search_btn.Text = "SEARCH";
+            this.search_btn.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // add_btn
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(140, 458);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 34);
-            this.button2.TabIndex = 48;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.add_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.add_btn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.add_btn.FlatAppearance.BorderSize = 0;
+            this.add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_btn.ForeColor = System.Drawing.Color.White;
+            this.add_btn.Location = new System.Drawing.Point(140, 458);
+            this.add_btn.Name = "add_btn";
+            this.add_btn.Size = new System.Drawing.Size(113, 34);
+            this.add_btn.TabIndex = 48;
+            this.add_btn.Text = "ADD";
+            this.add_btn.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(15, 362);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 25);
@@ -125,6 +141,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(15, 308);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 25);
@@ -135,6 +152,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(15, 245);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 25);
@@ -145,6 +163,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(15, 186);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 25);
@@ -155,6 +174,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(15, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 25);
@@ -165,6 +185,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(15, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 25);
@@ -175,21 +196,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(15, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 25);
             this.label1.TabIndex = 39;
             this.label1.Text = "Item ID:";
             // 
-            // dataGridView1
+            // dtp3
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(404, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(493, 641);
-            this.dataGridView1.TabIndex = 37;
+            this.dtp3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtp3.Location = new System.Drawing.Point(404, 12);
+            this.dtp3.Name = "dtp3";
+            this.dtp3.RowHeadersWidth = 51;
+            this.dtp3.RowTemplate.Height = 24;
+            this.dtp3.Size = new System.Drawing.Size(493, 641);
+            this.dtp3.TabIndex = 37;
             // 
             // dateTimePicker1
             // 
@@ -199,65 +221,84 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(247, 24);
             this.dateTimePicker1.TabIndex = 36;
             // 
-            // textBox5
+            // stock_txtbox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(140, 306);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(247, 27);
-            this.textBox5.TabIndex = 34;
+            this.stock_txtbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.stock_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.stock_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stock_txtbox.ForeColor = System.Drawing.Color.White;
+            this.stock_txtbox.Location = new System.Drawing.Point(140, 306);
+            this.stock_txtbox.Name = "stock_txtbox";
+            this.stock_txtbox.Size = new System.Drawing.Size(247, 20);
+            this.stock_txtbox.TabIndex = 34;
             // 
-            // comboBox1
+            // category_box
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(140, 183);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(247, 28);
-            this.comboBox1.TabIndex = 33;
+            this.category_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.category_box.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.category_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.category_box.ForeColor = System.Drawing.Color.White;
+            this.category_box.FormattingEnabled = true;
+            this.category_box.Location = new System.Drawing.Point(140, 183);
+            this.category_box.Name = "category_box";
+            this.category_box.Size = new System.Drawing.Size(247, 28);
+            this.category_box.TabIndex = 33;
             // 
-            // textBox4
+            // price_txtbox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(140, 243);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(247, 27);
-            this.textBox4.TabIndex = 32;
+            this.price_txtbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.price_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.price_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.price_txtbox.ForeColor = System.Drawing.Color.White;
+            this.price_txtbox.Location = new System.Drawing.Point(140, 243);
+            this.price_txtbox.Name = "price_txtbox";
+            this.price_txtbox.Size = new System.Drawing.Size(247, 20);
+            this.price_txtbox.TabIndex = 32;
             // 
-            // textBox3
+            // brand_txtbox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(140, 128);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(247, 27);
-            this.textBox3.TabIndex = 31;
+            this.brand_txtbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.brand_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.brand_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brand_txtbox.ForeColor = System.Drawing.Color.White;
+            this.brand_txtbox.Location = new System.Drawing.Point(140, 128);
+            this.brand_txtbox.Name = "brand_txtbox";
+            this.brand_txtbox.Size = new System.Drawing.Size(247, 20);
+            this.brand_txtbox.TabIndex = 31;
             // 
-            // textBox2
+            // name_txtbox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(140, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(247, 27);
-            this.textBox2.TabIndex = 30;
+            this.name_txtbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.name_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.name_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_txtbox.ForeColor = System.Drawing.Color.White;
+            this.name_txtbox.Location = new System.Drawing.Point(140, 76);
+            this.name_txtbox.Name = "name_txtbox";
+            this.name_txtbox.Size = new System.Drawing.Size(247, 20);
+            this.name_txtbox.TabIndex = 30;
             // 
-            // textBox1
+            // ItemID_txtbox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(140, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 27);
-            this.textBox1.TabIndex = 29;
+            this.ItemID_txtbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.ItemID_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ItemID_txtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemID_txtbox.ForeColor = System.Drawing.Color.White;
+            this.ItemID_txtbox.Location = new System.Drawing.Point(140, 22);
+            this.ItemID_txtbox.Name = "ItemID_txtbox";
+            this.ItemID_txtbox.Size = new System.Drawing.Size(247, 20);
+            this.ItemID_txtbox.TabIndex = 29;
             // 
             // Inventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(910, 665);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.delete_btn);
+            this.Controls.Add(this.clear_btn);
+            this.Controls.Add(this.modify_btn);
+            this.Controls.Add(this.search_btn);
+            this.Controls.Add(this.add_btn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -265,19 +306,20 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtp3);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.stock_txtbox);
+            this.Controls.Add(this.category_box);
+            this.Controls.Add(this.price_txtbox);
+            this.Controls.Add(this.brand_txtbox);
+            this.Controls.Add(this.name_txtbox);
+            this.Controls.Add(this.ItemID_txtbox);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtp3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,11 +327,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button delete_btn;
+        private System.Windows.Forms.Button clear_btn;
+        private System.Windows.Forms.Button modify_btn;
+        private System.Windows.Forms.Button search_btn;
+        private System.Windows.Forms.Button add_btn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -297,13 +339,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtp3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox stock_txtbox;
+        private System.Windows.Forms.ComboBox category_box;
+        private System.Windows.Forms.TextBox price_txtbox;
+        private System.Windows.Forms.TextBox brand_txtbox;
+        private System.Windows.Forms.TextBox name_txtbox;
+        private System.Windows.Forms.TextBox ItemID_txtbox;
     }
 }
