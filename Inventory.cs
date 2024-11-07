@@ -153,7 +153,7 @@ namespace KStore_Sales_Inventory
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     // Add parameter with wildcard search
-                    command.Parameters.AddWithValue("@SearchTerm", "%" + search_btn + "%");
+                    command.Parameters.AddWithValue("@SearchTerm", "%" + name_txtbox.Text + "%");
 
                     try
                     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace KStore_Sales_Inventory
 {
     public partial class AddUser : Form
     {
+        string connectionString = "Server=localhost,3306;Database=k_store;User ID=root;Password=;";
         public AddUser()
         {
             InitializeComponent();
@@ -19,15 +21,38 @@ namespace KStore_Sales_Inventory
 
         private void add_btn_Click(object sender, EventArgs e)
         {
-            string name = name_txtbox.Text;
-            string username = user_txtbox.Text;
-            string password = pass_txtbox.Text;
-            string role = role_txtbox.Text;
+            string query = "INSERT INTO users (Username, Name, Password, Role) VALUES (@Username, @Name, @Password, @Role)";
 
-            // Display the input data in a message box
-            MessageBox.Show($"Name: {name}\nUsername: {username}\nPassword: {password}\nRole: {role}", "User Information");
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    // Adding values from text boxes and date picker
+                    command.Parameters.AddWithValue("@Username", user_txtbox.Text);
+                    command.Parameters.AddWithValue("@Name", name_txtbox.Text);
+                    command.Parameters.AddWithValue("@Password", pass_txtbox);
+                    command.Parameters.AddWithValue("@Role", role_txtbox.Text);
 
-            // Here you could add code to save this data to a database or file. not yet done
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Record added successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to add the record.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
         }
 
         private void clear_btn_Click(object sender, EventArgs e)

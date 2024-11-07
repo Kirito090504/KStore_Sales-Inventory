@@ -127,6 +127,7 @@
             this.pass_txtbox.ForeColor = System.Drawing.Color.White;
             this.pass_txtbox.Location = new System.Drawing.Point(144, 168);
             this.pass_txtbox.Name = "pass_txtbox";
+            this.pass_txtbox.PasswordChar = '*';
             this.pass_txtbox.Size = new System.Drawing.Size(247, 20);
             this.pass_txtbox.TabIndex = 71;
             // 
