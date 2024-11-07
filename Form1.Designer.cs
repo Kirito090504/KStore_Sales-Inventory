@@ -85,6 +85,7 @@
             this.pass_box.ForeColor = System.Drawing.Color.White;
             this.pass_box.Location = new System.Drawing.Point(186, 87);
             this.pass_box.Name = "pass_box";
+            this.pass_box.PasswordChar = '*';
             this.pass_box.Size = new System.Drawing.Size(231, 20);
             this.pass_box.TabIndex = 3;
             // 

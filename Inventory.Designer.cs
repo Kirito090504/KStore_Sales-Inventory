@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.delete_btn = new System.Windows.Forms.Button();
             this.clear_btn = new System.Windows.Forms.Button();
             this.modify_btn = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             this.name_txtbox = new System.Windows.Forms.TextBox();
             this.ItemID_txtbox = new System.Windows.Forms.TextBox();
             this.dtp3 = new System.Windows.Forms.DataGridView();
+            this.exp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtp3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -290,7 +292,7 @@
             // dtp3
             // 
             this.dtp3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtp3.Location = new System.Drawing.Point(415, -1);
+            this.dtp3.Location = new System.Drawing.Point(415, 12);
             this.dtp3.Name = "dtp3";
             this.dtp3.RowHeadersWidth = 51;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -299,8 +301,25 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dtp3.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtp3.RowTemplate.Height = 24;
-            this.dtp3.Size = new System.Drawing.Size(498, 654);
+            this.dtp3.Size = new System.Drawing.Size(498, 641);
             this.dtp3.TabIndex = 54;
+            this.dtp3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtp3_CellContentClick);
+            // 
+            // exp
+            // 
+            this.exp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(48)))));
+            this.exp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("exp.BackgroundImage")));
+            this.exp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.exp.FlatAppearance.BorderSize = 0;
+            this.exp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exp.ForeColor = System.Drawing.Color.White;
+            this.exp.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.exp.Location = new System.Drawing.Point(67, 443);
+            this.exp.Name = "exp";
+            this.exp.Size = new System.Drawing.Size(55, 67);
+            this.exp.TabIndex = 55;
+            this.exp.UseVisualStyleBackColor = false;
             // 
             // Inventory
             // 
@@ -308,6 +327,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(910, 665);
+            this.Controls.Add(this.exp);
             this.Controls.Add(this.dtp3);
             this.Controls.Add(this.delete_btn);
             this.Controls.Add(this.clear_btn);
@@ -333,6 +353,7 @@
             this.Name = "Inventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
+            this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtp3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -361,5 +382,6 @@
         private System.Windows.Forms.TextBox name_txtbox;
         private System.Windows.Forms.TextBox ItemID_txtbox;
         private System.Windows.Forms.DataGridView dtp3;
+        private System.Windows.Forms.Button exp;
     }
 }

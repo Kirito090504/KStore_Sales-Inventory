@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace KStore_Sales_Inventory
 {
@@ -62,83 +65,120 @@ namespace KStore_Sales_Inventory
 
         private void modify_btn_Click(object sender, EventArgs e)
         {
+            string query = "UPDATE items SET Name = @Name, Brand = @Brand, Category = @Category, Price = @Price, Stock = @Stock, Date = @Date WHERE ItemId = @ItemId";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                try
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    connection.Open();
-                    string query = "UPDATE items SET name = @name, brand = @brand, category = @category, price = @price, " +
-                                   "stock = @stock, date = @date WHERE item_id = @item_id";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@Itemid", ItemID_txtbox.Text);
-                    cmd.Parameters.AddWithValue("@Name", name_txtbox.Text);
-                    cmd.Parameters.AddWithValue("@Brand", brand_txtbox.Text);
-                    cmd.Parameters.AddWithValue("@Category", category_box.Text);
-                    cmd.Parameters.AddWithValue("@Price", price_txtbox.Text);
-                    cmd.Parameters.AddWithValue("@Stock", stock_txtbox.Text);
-                    cmd.Parameters.AddWithValue("@Date", dateTimePicker1.Value);
+                    command.Parameters.AddWithValue("@ItemId", ItemID_txtbox.Text);
+                    command.Parameters.AddWithValue("@Name", name_txtbox.Text);
+                    command.Parameters.AddWithValue("@Brand", brand_txtbox.Text);
+                    command.Parameters.AddWithValue("@Category", category_box.Text);
+                    command.Parameters.AddWithValue("@Price", price_txtbox.Text);
+                    command.Parameters.AddWithValue("@Stock", stock_txtbox.Text);
+                    command.Parameters.AddWithValue("@Date", dateTimePicker1.Value);
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Item updated successfully.", "Success");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Database Error");
-                }
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            LoadData();
+                            MessageBox.Show("Item updated successfully.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No item found with the specified ID.");
+                        }
+                    }
+                    catch (MySqlException mySqlEx)
+                    {
+                        MessageBox.Show("MySQL Error: " + mySqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                } 
             }
         }
 
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
+            string query = "DELETE FROM items WHERE ItemId = @ItemId";
+
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                try
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    connection.Open();
-                    string query = "DELETE FROM items WHERE Itemid = @id";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@Itemid", ItemID_txtbox.Text);
+                    // Add parameter to avoid SQL injection
+                    command.Parameters.AddWithValue("@ItemId", ItemID_txtbox.Text);
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Item deleted successfully.", "Success");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Database Error");
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            LoadData();
+                            MessageBox.Show("Item deleted successfully.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No item found with the specified ID.");
+                        }
+                    }
+                    catch (MySqlException mySqlEx)
+                    {
+                        MessageBox.Show("MySQL Error: " + mySqlEx.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
                 }
             }
         }
-
         private void search_btn_Click(object sender, EventArgs e)
         {
+            string query = "SELECT * FROM items WHERE Name LIKE @SearchTerm OR Brand LIKE @SearchTerm";
+
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                try
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    connection.Open();
-                    string query = "SELECT * FROM items WHERE Itemid = @Itemid";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@Itemid", ItemID_txtbox.Text);
+                    command.Parameters.AddWithValue("@SearchTerm", "%" + ItemID_txtbox.Text + "%");
 
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
+                    try
                     {
-                        name_txtbox.Text = reader["Name"].ToString();
-                        brand_txtbox.Text = reader["Brand"].ToString();
-                        category_box.Text = reader["Category"].ToString();
-                        price_txtbox.Text = reader["Price"].ToString();
-                        stock_txtbox.Text = reader["Stock"].ToString();
-                        dateTimePicker1.Value = Convert.ToDateTime(reader["Date"]);
+                        connection.Open();
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            if (dataTable.Rows.Count > 0)
+                            {
+                                dtp3.DataSource = dataTable; 
+                            }
+                            else
+                            {
+                                MessageBox.Show("No items found matching the search term.");
+                            }
+                        }
                     }
-                    else
+                    catch (MySqlException mySqlEx)
                     {
-                        MessageBox.Show("Item not found.", "Not Found");
+                        MessageBox.Show("MySQL Error: " + mySqlEx.Message);
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Database Error");
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
                 }
             }
         }
@@ -156,10 +196,10 @@ namespace KStore_Sales_Inventory
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
 
-                        // Check if DataTable has data before assigning to DataGridView
+  
                         if (dataTable.Rows.Count > 0)
                         {
-                            dtp3.DataSource = dataTable; // Assuming dtp3 is a DataGridView
+                            dtp3.DataSource = dataTable;
                         }
                         else
                         {
@@ -167,7 +207,7 @@ namespace KStore_Sales_Inventory
                         }
                     }
                 }
-                catch (MySqlException mySqlEx) // Change to MySqlException
+                catch (MySqlException mySqlEx) 
                 {
                     MessageBox.Show("MySQL Error: " + mySqlEx.Message);
                 }
@@ -177,6 +217,28 @@ namespace KStore_Sales_Inventory
                 }
             }
         }
+
+        private void dtp3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+  
+            if (e.RowIndex >= 0)
+            {
+  
+                DataGridViewRow row = dtp3.Rows[e.RowIndex];
+
+                ItemID_txtbox.Text = row.Cells[0].Value?.ToString();
+                name_txtbox.Text = row.Cells[1].Value?.ToString(); 
+                brand_txtbox.Text = row.Cells[2].Value?.ToString(); 
+                category_box.Text = row.Cells[3].Value?.ToString(); 
+                price_txtbox.Text = row.Cells[4].Value?.ToString(); 
+                stock_txtbox.Text = row.Cells[5].Value?.ToString(); 
+            }
+        }
+
+        private void Inventory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
-    }
+}
     
