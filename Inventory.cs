@@ -70,7 +70,6 @@ namespace KStore_Sales_Inventory
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    // Add parameters to avoid SQL injection
                     command.Parameters.AddWithValue("@ItemId", ItemID_txtbox.Text);
                     command.Parameters.AddWithValue("@Name", name_txtbox.Text);
                     command.Parameters.AddWithValue("@Brand", brand_txtbox.Text);
@@ -152,8 +151,7 @@ namespace KStore_Sales_Inventory
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    // Add parameter with wildcard search
-                    command.Parameters.AddWithValue("@SearchTerm", "%" + name_txtbox.Text + "%");
+                    command.Parameters.AddWithValue("@SearchTerm", "%" + ItemID_txtbox.Text + "%");
 
                     try
                     {
@@ -165,7 +163,7 @@ namespace KStore_Sales_Inventory
 
                             if (dataTable.Rows.Count > 0)
                             {
-                                dtp3.DataSource = dataTable; // Populate DataGridView with search results
+                                dtp3.DataSource = dataTable; 
                             }
                             else
                             {
@@ -198,10 +196,10 @@ namespace KStore_Sales_Inventory
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
 
-                        // Check if DataTable has data before assigning to DataGridView
+  
                         if (dataTable.Rows.Count > 0)
                         {
-                            dtp3.DataSource = dataTable; // Assuming dtp3 is a DataGridView
+                            dtp3.DataSource = dataTable;
                         }
                         else
                         {
@@ -209,7 +207,7 @@ namespace KStore_Sales_Inventory
                         }
                     }
                 }
-                catch (MySqlException mySqlEx) // Change to MySqlException
+                catch (MySqlException mySqlEx) 
                 {
                     MessageBox.Show("MySQL Error: " + mySqlEx.Message);
                 }
@@ -222,20 +220,24 @@ namespace KStore_Sales_Inventory
 
         private void dtp3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Ensure the click is on a valid row, not on the header
+  
             if (e.RowIndex >= 0)
             {
-                // Access the selected row
+  
                 DataGridViewRow row = dtp3.Rows[e.RowIndex];
 
-                // Assign values from specific columns to each TextBox
-                ItemID_txtbox.Text = row.Cells[0].Value?.ToString(); // Column 1
-                name_txtbox.Text = row.Cells[1].Value?.ToString(); // Column 2
-                brand_txtbox.Text = row.Cells[2].Value?.ToString(); // Column 3
-                category_box.Text = row.Cells[3].Value?.ToString(); // Column 4
-                price_txtbox.Text = row.Cells[4].Value?.ToString(); // Column 5
-                stock_txtbox.Text = row.Cells[5].Value?.ToString(); // Column 6
+                ItemID_txtbox.Text = row.Cells[0].Value?.ToString();
+                name_txtbox.Text = row.Cells[1].Value?.ToString(); 
+                brand_txtbox.Text = row.Cells[2].Value?.ToString(); 
+                category_box.Text = row.Cells[3].Value?.ToString(); 
+                price_txtbox.Text = row.Cells[4].Value?.ToString(); 
+                stock_txtbox.Text = row.Cells[5].Value?.ToString(); 
             }
+        }
+
+        private void Inventory_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

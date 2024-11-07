@@ -39,7 +39,6 @@ namespace KStore_Sales_Inventory
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    // Adding value from the Username text box as a parameter
                     command.Parameters.AddWithValue("@Username", username_txtbox.Text);
 
                     try
@@ -52,13 +51,13 @@ namespace KStore_Sales_Inventory
 
                             if (dataTable.Rows.Count > 0)
                             {
-                                // Displaying results in a DataGridView or any other control (e.g., setting values in form fields)
+                                LoadUserData();
                                 dtp6.DataSource = dataTable;
                             }
                             else
                             {
                                 MessageBox.Show("No records found.");
-                                dtp6.DataSource = null; // Clear DataGridView if no results found
+                                dtp6.DataSource = null;
                             }
                         }
                     }
@@ -78,7 +77,6 @@ namespace KStore_Sales_Inventory
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    // Adding value from the Username text box
                     command.Parameters.AddWithValue("@Username", username_txtbox.Text);
 
                     try
@@ -111,7 +109,6 @@ namespace KStore_Sales_Inventory
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    // Adding values from text boxes and date picker
                     command.Parameters.AddWithValue("@Username", username_txtbox.Text);
                     command.Parameters.AddWithValue("@Name", name_txtbox.Text);
                     command.Parameters.AddWithValue("@Role", role_txtbox.Text);
@@ -168,16 +165,13 @@ namespace KStore_Sales_Inventory
 
         private void dtp6_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Ensure the click is on a valid row, not on the header
             if (e.RowIndex >= 0)
             {
-                // Access the selected row
                 DataGridViewRow row = dtp6.Rows[e.RowIndex];
 
-                // Assign values from specific columns to each TextBox
-                username_txtbox.Text = row.Cells[0].Value?.ToString(); // Column 1
-                name_txtbox.Text = row.Cells[1].Value?.ToString(); // Column 2
-                role_txtbox.Text = row.Cells[3].Value?.ToString(); // Column 3
+                username_txtbox.Text = row.Cells[0].Value?.ToString(); 
+                name_txtbox.Text = row.Cells[1].Value?.ToString(); 
+                role_txtbox.Text = row.Cells[3].Value?.ToString(); 
             }
         }
     }
