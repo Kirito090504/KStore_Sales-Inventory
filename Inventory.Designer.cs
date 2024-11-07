@@ -301,6 +301,7 @@
             this.dtp3.RowTemplate.Height = 24;
             this.dtp3.Size = new System.Drawing.Size(498, 654);
             this.dtp3.TabIndex = 54;
+            this.dtp3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtp3_CellContentClick);
             // 
             // Inventory
             // 

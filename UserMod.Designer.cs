@@ -104,6 +104,7 @@
             this.search_btn.TabIndex = 70;
             this.search_btn.Text = "SEARCH";
             this.search_btn.UseVisualStyleBackColor = false;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
             // 
             // add_btn
             // 
