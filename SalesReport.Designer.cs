@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesReport));
-            this.dtp5 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tranID_box = new System.Windows.Forms.TextBox();
             this.search_btn = new System.Windows.Forms.Button();
@@ -37,19 +36,17 @@
             this.f_total = new System.Windows.Forms.TextBox();
             this.exp = new System.Windows.Forms.Button();
             this.receipt = new System.Windows.Forms.Button();
+            this.dtp5 = new System.Windows.Forms.DataGridView();
+            this.Transaction_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtp5)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dtp5
-            // 
-            this.dtp5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtp5.Location = new System.Drawing.Point(17, 86);
-            this.dtp5.Name = "dtp5";
-            this.dtp5.RowHeadersWidth = 51;
-            this.dtp5.RowTemplate.Height = 24;
-            this.dtp5.Size = new System.Drawing.Size(881, 527);
-            this.dtp5.TabIndex = 1;
-            this.dtp5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtp5_CellContentClick);
             // 
             // label1
             // 
@@ -89,6 +86,7 @@
             this.search_btn.Size = new System.Drawing.Size(53, 49);
             this.search_btn.TabIndex = 4;
             this.search_btn.UseVisualStyleBackColor = false;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
             // 
             // label2
             // 
@@ -128,6 +126,7 @@
             this.exp.Size = new System.Drawing.Size(47, 49);
             this.exp.TabIndex = 7;
             this.exp.UseVisualStyleBackColor = false;
+            this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // receipt
             // 
@@ -144,6 +143,82 @@
             this.receipt.Size = new System.Drawing.Size(47, 49);
             this.receipt.TabIndex = 8;
             this.receipt.UseVisualStyleBackColor = false;
+            this.receipt.Click += new System.EventHandler(this.receipt_Click);
+            // 
+            // dtp5
+            // 
+            this.dtp5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtp5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Transaction_id,
+            this.ItemId,
+            this.ItemName,
+            this.Brand,
+            this.Category,
+            this.Quantity,
+            this.Date,
+            this.Total});
+            this.dtp5.Location = new System.Drawing.Point(17, 94);
+            this.dtp5.Name = "dtp5";
+            this.dtp5.RowHeadersWidth = 51;
+            this.dtp5.RowTemplate.Height = 24;
+            this.dtp5.Size = new System.Drawing.Size(881, 518);
+            this.dtp5.TabIndex = 9;
+            // 
+            // Transaction_id
+            // 
+            this.Transaction_id.HeaderText = "Transaction ID";
+            this.Transaction_id.MinimumWidth = 6;
+            this.Transaction_id.Name = "Transaction_id";
+            this.Transaction_id.Width = 125;
+            // 
+            // ItemId
+            // 
+            this.ItemId.HeaderText = "Item ID";
+            this.ItemId.MinimumWidth = 6;
+            this.ItemId.Name = "ItemId";
+            this.ItemId.Width = 125;
+            // 
+            // ItemName
+            // 
+            this.ItemName.HeaderText = "Item Name";
+            this.ItemName.MinimumWidth = 6;
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Width = 125;
+            // 
+            // Brand
+            // 
+            this.Brand.HeaderText = "Brand";
+            this.Brand.MinimumWidth = 6;
+            this.Brand.Name = "Brand";
+            this.Brand.Width = 125;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 6;
+            this.Category.Name = "Category";
+            this.Category.Width = 125;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.Width = 125;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.Width = 125;
             // 
             // SalesReport
             // 
@@ -151,6 +226,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(910, 665);
+            this.Controls.Add(this.dtp5);
             this.Controls.Add(this.receipt);
             this.Controls.Add(this.exp);
             this.Controls.Add(this.f_total);
@@ -158,7 +234,6 @@
             this.Controls.Add(this.search_btn);
             this.Controls.Add(this.tranID_box);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtp5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SalesReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -170,7 +245,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dtp5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tranID_box;
         private System.Windows.Forms.Button search_btn;
@@ -178,5 +252,14 @@
         private System.Windows.Forms.TextBox f_total;
         private System.Windows.Forms.Button exp;
         private System.Windows.Forms.Button receipt;
+        private System.Windows.Forms.DataGridView dtp5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Transaction_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

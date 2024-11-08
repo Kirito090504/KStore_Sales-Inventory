@@ -16,7 +16,7 @@ namespace KStore_Sales_Inventory
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoadS());
+            Application.Run(new Form1());
         }
     }
 }

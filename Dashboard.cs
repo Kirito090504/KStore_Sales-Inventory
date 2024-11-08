@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace KStore_Sales_Inventory
@@ -14,12 +7,14 @@ namespace KStore_Sales_Inventory
     {
         public Dashboard()
         {
+            var r = new Random();
             InitializeComponent();
 
 
             lblpg.Text = "Sales";
             this.MainPanel.Controls.Clear();
             FrmSales FrmSales_Vrb = new FrmSales() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            _l1.Text = r.Next(0, 100)<25?":)":"";
             FrmSales_Vrb.FormBorderStyle = FormBorderStyle.None;
             this.MainPanel.Controls.Add(FrmSales_Vrb);
             FrmSales_Vrb.Show();

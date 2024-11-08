@@ -55,7 +55,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Transaction_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtp2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +96,6 @@
             this.brand_txtbox.Name = "brand_txtbox";
             this.brand_txtbox.Size = new System.Drawing.Size(247, 20);
             this.brand_txtbox.TabIndex = 2;
-            this.brand_txtbox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // category_box
             // 
@@ -136,7 +140,12 @@
             this.dtp2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Transaction_id,
             this.ItemId,
-            this.Name});
+            this.ItemName,
+            this.Brand,
+            this.Category,
+            this.Quantity,
+            this.Date,
+            this.Total});
             this.dtp2.Location = new System.Drawing.Point(405, 12);
             this.dtp2.Name = "dtp2";
             this.dtp2.RowHeadersWidth = 51;
@@ -382,12 +391,47 @@
             this.ItemId.Name = "ItemId";
             this.ItemId.Width = 125;
             // 
-            // Name
+            // ItemName
             // 
-            this.Name.HeaderText = "Item Name";
-            this.Name.MinimumWidth = 6;
-            this.Name.Name = "Name";
-            this.Name.Width = 125;
+            this.ItemName.HeaderText = "Item Name";
+            this.ItemName.MinimumWidth = 6;
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Width = 125;
+            // 
+            // Brand
+            // 
+            this.Brand.HeaderText = "Brand";
+            this.Brand.MinimumWidth = 6;
+            this.Brand.Name = "Brand";
+            this.Brand.Width = 125;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 6;
+            this.Category.Name = "Category";
+            this.Category.Width = 125;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.MinimumWidth = 6;
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Width = 125;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.Width = 125;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.Width = 125;
             // 
             // FrmSales
             // 
@@ -420,10 +464,9 @@
             this.Controls.Add(this.ItmName_txtbox);
             this.Controls.Add(this.ItemID_txtbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            //this.Name = "FrmSales";
+            this.Name = "FrmSales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSales";
-            this.Load += new System.EventHandler(this.FrmSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtp2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -458,6 +501,11 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Transaction_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }

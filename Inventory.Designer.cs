@@ -353,7 +353,6 @@
             this.Name = "Inventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
-            this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtp3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

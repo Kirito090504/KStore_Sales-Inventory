@@ -1,31 +1,19 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace KStore_Sales_Inventory
 {
     public partial class FrmSales : Form
     {
-        string connectionString = "Server=localhost;Database=k_store;User ID=root;Password=;";
+        string connectionString = "Server=localhost,3306;Database=k_store;User ID=root;Password=;";
 
         public FrmSales()
         {
             InitializeComponent();
             LoadData();
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void search_btn_Click(object sender, EventArgs e)
@@ -35,9 +23,9 @@ namespace KStore_Sales_Inventory
                 try
                 {
                     connection.Open();
-                    string query = "SELECT * FROM items WHERE ItemId = @ItemId";
+                    string query = "SELECT * FROM sales WHERE ItemId = @ItemId";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@Item_Id", ItemID_txtbox.Text);
+                    cmd.Parameters.AddWithValue("@ItemId", ItemID_txtbox.Text);
 
                     MySqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
@@ -46,25 +34,18 @@ namespace KStore_Sales_Inventory
                         brand_txtbox.Text = reader["Brand"].ToString();
                         category_box.Text = reader["Category"].ToString();
                         quan_txtbox.Text = reader["Stock"].ToString();
-                        dtp1.Value = reader.GetDateTime("Date");
-                        total_txtbox.Text = reader["Note"].ToString();
                     }
 
                     else
                     {
-                        MessageBox.Show("Item not found.", "Not Found");
+                        MessageBox.Show("Transaction not found.", "Not Found");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message, "Database Error");
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
-        }
-
-        private void FrmSales_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void add_btn_Click(object sender, EventArgs e)
@@ -74,15 +55,16 @@ namespace KStore_Sales_Inventory
                 try
                 {
                     connection.Open();
-                    string query = "INSERT INTO sales (Name, Brand, Category, Price, Quantity, Date, Status, Note) " +
-                                   "VALUES (@Name, @Brand, @Category, @Price, @Quantity, @Date, @Status, @Note)";
+                    string query = "INSERT INTO sales (ItemId, Name, Brand, Category, Quantity, Date, Total) " +
+                                   "VALUES (@ItemId, @Name, @Brand, @Category, @Quantity, @Date, @Total)";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@ItemId", ItemID_txtbox.Text);
                     cmd.Parameters.AddWithValue("@Name", ItmName_txtbox.Text);
                     cmd.Parameters.AddWithValue("@Brand", brand_txtbox.Text);
                     cmd.Parameters.AddWithValue("@Category", category_box.Text);
                     cmd.Parameters.AddWithValue("@Quantity", quan_txtbox.Text);
                     cmd.Parameters.AddWithValue("@Date", dtp1.Value);
-                    cmd.Parameters.AddWithValue("Note", total_txtbox.Text);
+                    cmd.Parameters.AddWithValue("@Total", total_txtbox.Text);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Item added successfully.", "Success");
@@ -90,6 +72,7 @@ namespace KStore_Sales_Inventory
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message, "Database Error");
+                    throw ex;
                 }
             }
         }
@@ -112,16 +95,19 @@ namespace KStore_Sales_Inventory
                 try
                 {
                     connection.Open();
-                    string query = "UPDATE sales SET Name = @Name, Brand = @Brand, Category = @Category, Price = @Price, " +
-                                   "Stock = @Stock, Date = @Date, Status = @Status, Note = @Note WHERE ItemId = @ItemId";
+                    string query = @"
+                UPDATE sales SET ItemId = @ItemId, Name=@Name, Brand=@Brand,
+                Category=@Category, Quantity=@Quantity, Date=@Date, Total=@Total
+                WHERE Transaction_id = @Transaction_id";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@ItemId", ItemID_txtbox.Text);
                     cmd.Parameters.AddWithValue("@Name", ItmName_txtbox.Text);
                     cmd.Parameters.AddWithValue("@Brand", brand_txtbox.Text);
                     cmd.Parameters.AddWithValue("@Category", category_box.Text);
-                    cmd.Parameters.AddWithValue("@Stock", quan_txtbox.Text);
+                    cmd.Parameters.AddWithValue("@Quantity", quan_txtbox.Text);
                     cmd.Parameters.AddWithValue("@Date", dtp1.Value);
-                    cmd.Parameters.AddWithValue("@Note", total_txtbox.Text);
+                    cmd.Parameters.AddWithValue("@Transaction_id", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@Total", total_txtbox.Text);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Item updated successfully.", "Success");
@@ -151,6 +137,7 @@ namespace KStore_Sales_Inventory
                 {
                     MessageBox.Show("Error: " + ex.Message, "Database Error");
                 }
+                LoadData();
             }
         }
 
@@ -163,6 +150,7 @@ namespace KStore_Sales_Inventory
                 try
                 {
                     connection.Open();
+                    MySqlCommand cmd = new MySqlCommand(query1, connection);
                     {
                         using (MySqlCommand command = connection.CreateCommand())
                         {
@@ -175,7 +163,12 @@ namespace KStore_Sales_Inventory
                                     dtp2.Rows.Add(
                                         reader.GetInt32("Transaction_id"),
                                         reader.GetInt32("ItemId"),
-                                        reader.GetString("Name")
+                                        reader.GetString("Name"),
+                                        reader.GetString("Brand"),
+                                        reader.GetString("Category"),
+                                        reader.GetInt32("Quantity"),
+                                        reader.GetDateTime("Date"),
+                                        reader.GetFloat("Total")
                                         );
                                 }
                             }
@@ -200,10 +193,11 @@ namespace KStore_Sales_Inventory
 
                 DataGridViewRow row = dtp2.Rows[e.RowIndex];
 
-                ItemID_txtbox.Text = row.Cells[0].Value?.ToString();
-                ItmName_txtbox.Text = row.Cells[1].Value?.ToString();
-                brand_txtbox.Text = row.Cells[2].Value?.ToString();
-                category_box.Text = row.Cells[3].Value?.ToString();
+                textBox1.Text = row.Cells[0].Value?.ToString();
+                ItemID_txtbox.Text = row.Cells[1].Value?.ToString();
+                ItmName_txtbox.Text = row.Cells[2].Value?.ToString();
+                brand_txtbox.Text = row.Cells[3].Value?.ToString();
+                category_box.Text = row.Cells[4].Value?.ToString();
                 quan_txtbox.Text = row.Cells[5].Value?.ToString();
                 dtp1.Text = row.Cells[6].Value?.ToString();
                 total_txtbox.Text = row.Cells[7].Value?.ToString();
@@ -212,6 +206,20 @@ namespace KStore_Sales_Inventory
 
         private void quan_txtbox_TextChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(quan_txtbox.Text)) {
+                ItmName_txtbox.Clear();
+                brand_txtbox.Clear();
+                category_box.SelectedIndex = -1;
+                quan_txtbox.Clear();
+                total_txtbox.Clear();
+                dtp1.Value = DateTime.Today;
+                return;
+            }
+
+            try { int.Parse(quan_txtbox.Text); }
+            catch (FormatException) { return; }
+
+
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 try
@@ -219,7 +227,7 @@ namespace KStore_Sales_Inventory
                     connection.Open();
                     string query = "SELECT * FROM items WHERE ItemId = @ItemId";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@Item_Id", ItemID_txtbox.Text);
+                    cmd.Parameters.AddWithValue("@ItemId", ItemID_txtbox.Text);
 
                     MySqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())

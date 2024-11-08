@@ -38,12 +38,14 @@
             this.MainPanel = new System.Windows.Forms.Panel();
             this.lblpg = new System.Windows.Forms.Label();
             this.exit = new System.Windows.Forms.Button();
+            this._l1 = new System.Windows.Forms.Label();
             this.Board.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
             // Board
             // 
+            this.Board.Controls.Add(this._l1);
             this.Board.Controls.Add(this.logo);
             this.Board.Controls.Add(this.users_btn);
             this.Board.Controls.Add(this.Inv_btn);
@@ -159,6 +161,15 @@
             this.exit.UseVisualStyleBackColor = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
+            // _l1
+            // 
+            this._l1.AutoSize = true;
+            this._l1.ForeColor = System.Drawing.Color.DarkGray;
+            this._l1.Location = new System.Drawing.Point(12, 751);
+            this._l1.Name = "_l1";
+            this._l1.Size = new System.Drawing.Size(0, 16);
+            this._l1.TabIndex = 5;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -174,6 +185,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Board.ResumeLayout(false);
+            this.Board.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -191,5 +203,6 @@
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.PictureBox logo;
         public System.Windows.Forms.Button users_btn;
+        private System.Windows.Forms.Label _l1;
     }
 }
