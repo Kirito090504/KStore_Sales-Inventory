@@ -320,6 +320,7 @@
             this.exp.Size = new System.Drawing.Size(55, 67);
             this.exp.TabIndex = 55;
             this.exp.UseVisualStyleBackColor = false;
+            this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // Inventory
             // 

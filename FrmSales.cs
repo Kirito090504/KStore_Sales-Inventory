@@ -1,7 +1,11 @@
-﻿using MySql.Data.MySqlClient;
+﻿using iTextSharp.text.pdf;
+using iTextSharp.text;
+using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 
 namespace KStore_Sales_Inventory
@@ -256,5 +260,61 @@ namespace KStore_Sales_Inventory
                 }
             }
         }
+
+        private void exp_Click(object sender, EventArgs e)
+        {
+                string filePath = "InventoryReport.pdf";
+                Document document = new Document(PageSize.A4.Rotate());
+                try
+                {
+
+                    PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
+
+
+                    document.Open();
+
+
+                    PdfPTable table = new PdfPTable(dtp2.ColumnCount);
+
+
+                    foreach (DataGridViewColumn column in dtp2.Columns)
+                    {
+                        PdfPCell headerCell = new PdfPCell(new Phrase(column.HeaderText));
+                        table.AddCell(headerCell);
+                    }
+
+
+                    foreach (DataGridViewRow row in dtp2.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            table.AddCell(new Phrase(cell.Value?.ToString() ?? ""));
+                        }
+                    }
+
+
+                    document.Add(table);
+                    MessageBox.Show("PDF export successful! File saved at " + filePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error generating PDF: " + ex.Message);
+                }
+                finally
+                {
+                    document.Close();
+                }
+
+                try
+                {
+                    Process.Start(filePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error opening PDF: " + ex.Message);
+                }
+            }
+        }
     }
-}

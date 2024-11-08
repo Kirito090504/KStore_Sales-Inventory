@@ -354,6 +354,7 @@
             this.exp.Size = new System.Drawing.Size(47, 49);
             this.exp.TabIndex = 29;
             this.exp.UseVisualStyleBackColor = false;
+            this.exp.Click += new System.EventHandler(this.exp_Click);
             // 
             // label8
             // 

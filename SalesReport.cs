@@ -201,12 +201,7 @@ namespace KStore_Sales_Inventory
                     MessageBox.Show("Error opening PDF: " + ex.Message);
                 }
             }
-
-        private void receipt_Click(object sender, EventArgs e)
-        {
-
         }
-    }
     }
 
 

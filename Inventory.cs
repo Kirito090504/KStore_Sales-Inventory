@@ -1,6 +1,10 @@
-﻿using MySql.Data.MySqlClient;
+﻿using iTextSharp.text.pdf;
+using iTextSharp.text;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 
 namespace KStore_Sales_Inventory
@@ -140,7 +144,7 @@ namespace KStore_Sales_Inventory
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@SearchTerm", "%" + ItemID_txtbox.Text + "%");
+                    command.Parameters.AddWithValue("@SearchTerm", "%" + name_txtbox.Text + "%");
 
                     try
                     {
@@ -221,6 +225,62 @@ namespace KStore_Sales_Inventory
                 category_box.Text = row.Cells[3].Value?.ToString(); 
                 price_txtbox.Text = row.Cells[4].Value?.ToString(); 
                 stock_txtbox.Text = row.Cells[5].Value?.ToString(); 
+            }
+        }
+
+        private void exp_Click(object sender, EventArgs e)
+        {
+            string filePath = "InventoryReport.pdf";
+            Document document = new Document(PageSize.A4.Rotate());
+            try
+            {
+
+                PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
+
+
+                document.Open();
+
+
+                PdfPTable table = new PdfPTable(dtp3.ColumnCount);
+
+
+                foreach (DataGridViewColumn column in dtp3.Columns)
+                {
+                    PdfPCell headerCell = new PdfPCell(new Phrase(column.HeaderText));
+                    table.AddCell(headerCell);
+                }
+
+
+                foreach (DataGridViewRow row in dtp3.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        table.AddCell(new Phrase(cell.Value?.ToString() ?? ""));
+                    }
+                }
+
+
+                document.Add(table);
+                MessageBox.Show("PDF export successful! File saved at " + filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error generating PDF: " + ex.Message);
+            }
+            finally
+            {
+                document.Close();
+            }
+
+            try
+            {
+                Process.Start(filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening PDF: " + ex.Message);
             }
         }
     }

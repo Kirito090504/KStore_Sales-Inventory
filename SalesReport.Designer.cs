@@ -143,7 +143,6 @@
             this.receipt.Size = new System.Drawing.Size(47, 49);
             this.receipt.TabIndex = 8;
             this.receipt.UseVisualStyleBackColor = false;
-            this.receipt.Click += new System.EventHandler(this.receipt_Click);
             // 
             // dtp5
             // 
